@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-orm-ibatis</artifactId>
+    <version>4.3.14.RELEASE</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <spring.version>3.1.0.RELEASE</spring.version>
+        <ibatis.sqlmap.version>2.3.4.726</ibatis.sqlmap.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.ibatis</groupId>
+            <artifactId>ibatis-sqlmap</artifactId>
+            <version>${ibatis.sqlmap.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>deployRelease</id>
+            <name>Local Nexus Repository</name>
+            <url>http://nexus.pay.56qq.cn:9081/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>deploySnapshot</id>
+            <name>Local Nexus Repository</name>
+            <url>http://nexus.pay.56qq.cn:9081/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
